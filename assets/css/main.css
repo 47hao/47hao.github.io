@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900");
+/*
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite,
+code, img, ins, small, strike, strong, sub, sup, center, 
+form, label, legend, table, caption,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;}
+*/
+
+body {
+	margin-top: 50px;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 50px;
+}
+
+body, input, select, textarea {
+    color: #585858;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 16pt;
+    font-weight: 300;
+    line-height: 1.75;
+}
+
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color:#999;
+	padding: 14px 16px;
+	text-align: center;
+	text-decoration: none;
+}
+li a:hover {
+	color: #000;
+}
+
+/* Wrapper */
+	#wrapper > * > .inner {
+		width: 100%;
+		max-width: 68em;
+		margin: 0 auto;
+		padding: 0 2.5em;
+	}
+
+		@media screen and (max-width: 736px) {
+
+			#wrapper > * > .inner {
+				padding: 0 1.25em;
+			}
+
+		}
+	.title {
+		font-size:20pt
+	}
+
+.gallery {
+	
+	position:relative;
+	float: left;
+	width: 30%;	
+	margin-right:3.2%;
+	margin-bottom:3%;
+	background-color:#000;
+	border-radius: 20px;
+}
+
+img{
+	display:block;
+	width:100%;
+	height: auto;
+	border-radius: 20px;
+}
+
+.gallery:hover .overlay{
+	opacity:0.7;
+}
+
+.overlay {
+	border-radius: 20px;
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	height:100%;
+	width:100%;
+	opacity:0;
+	transition: .2s ease;
+	background-color: #000;
+}
+
+.text{
+	color:white;
+	font-size: 40px;
+	position: absolute;
+	top:50%;
+	left:50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
