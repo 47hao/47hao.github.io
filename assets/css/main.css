@@ -18,11 +18,19 @@ footer, header, hgroup, menu, nav, section {
 	display: block;}
 */
 
+.nav {
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav-buttons {
+	flex: 1;
+	align-self: flex-end;
+}
 body {
-	margin-top: 50px;
-	margin-left: 50px;
-	margin-right: 50px;
-	margin-bottom: 50px;
+	
+	margin: 50px 8vw;
+	
 }
 
 body, input, select, textarea {
@@ -76,46 +84,85 @@ li a:hover {
 	}
 
 .gallery {
-	
-	position:relative;
-	float: left;
-	width: 30%;	
-	margin-right:3.2%;
-	margin-bottom:3%;
-	background-color:#000;
-	border-radius: 20px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: -2vw -2vw;
 }
 
-img{
+.card, .overlay, .img {
+	border-radius: 1.5vw;
+}
+
+.card {
+	flex: 1;
+	flex-basis: 30vw;
+	
+	transition: 0.4s;
+	position:relative;
+	background-color:#000;
+	border-radius: 1.5vw;
+	margin: 2vw 2vw;
+}
+
+img {
 	display:block;
 	width:100%;
-	height: auto;
-	border-radius: 20px;
+	height:auto;
 }
 
-.gallery:hover .overlay{
-	opacity:0.7;
+.card:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card:hover .overlay{
+	opacity:0.4;
 }
 
+.overlay, .overlay-title, .overlay-text {
+	opacity: 0;
+	transition: .3s ease;
+	position: absolute;
+}
 .overlay {
-	border-radius: 20px;
-	position:absolute;
 	top:0;
-	bottom:0;
 	left:0;
-	right:0;
 	height:100%;
 	width:100%;
-	opacity:0;
-	transition: .2s ease;
 	background-color: #000;
+	margin: 0px;
 }
 
-.text{
+.card:hover .overlay-title{
+	opacity:1;
+	top: 40%;
+}
+
+.overlay-title{
+	width:80%;
 	color:white;
-	font-size: 40px;
-	position: absolute;
-	top:50%;
+	font-size: 50px;
+	font-weight: bold;
+	left: 50%;
+	top:20%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align:center;
+	vertical-align:top;
+}
+
+.card:hover .overlay-text {
+	opacity: 1;
+	top: 55%;
+}
+
+.overlay-text{
+	width:80%;
+	transition: .5s ease;
+	color:#CCC;
+	font-size: 24px;
+	top:90%;
 	left:50%;
 	-webkit-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
