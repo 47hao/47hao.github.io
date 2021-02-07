@@ -141,7 +141,7 @@ img {
 .overlay-title{
 	width:80%;
 	color:white;
-	font-size: 50px;
+	font-size: 3vw;
 	font-weight: bold;
 	left: 50%;
 	top:20%;
@@ -154,22 +154,22 @@ img {
 
 .card:hover .overlay-text {
 	opacity: 1;
-	top: 50%;
+	top: 0%;
 }
 
 .overlay-text{
 	position: absolute;
-	/*vertical-align:top;*/
 	width:80%;
 	transition: .5s ease;
 	color:#CCC;
-	font-size: 24px;
+	font-size: 1.5vw;
+
 	top:90%;
 	left:50%;
-	-webkit-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
 	text-align: center;
+	-webkit-transform: translate(-50%, 0%);
+	-ms-transform: translate(-50%, 0%);
+	transform: translate(-50%, 0%);
 }
 
 .text-bound{
@@ -177,5 +177,5 @@ img {
 	bottom: 0%;
 	width: 100%;
 	height: 50%;
-
 }
+
