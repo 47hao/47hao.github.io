@@ -27,6 +27,7 @@ footer, header, hgroup, menu, nav, section {
 
 .nav-item {
 	text-decoration: none;
+	font-size: 20pt;
 }
 
 .nav-button {
@@ -40,7 +41,8 @@ footer, header, hgroup, menu, nav, section {
 }
 
 .title {
-	font-weight:normal;
+	font-family: "Lato", Helvetica, sans-serif;
+	font-weight: bold;
 	color: #222;
 	padding-right: 3vw;
 	font-size:30pt
@@ -51,11 +53,17 @@ body {
 }
 
 body, input, select, textarea {
-    color: #585858;
-    font-family: "Source Sans Pro", Helvetica, sans-serif;
-    font-size: 20pt;
-    font-weight: 300;
-    line-height: 1.75;
+    color: #363636;
+    font-family: "Open Sans", Helvetica, sans-serif;
+    font-size: 14pt;
+    line-height: 1.5;
+}
+
+.text-block {
+	font-size: 14pt;
+	font-weight: regular;
+	text-indent: 2em;
+	line-height: 1.5;
 }
 
 /* Wrapper */
@@ -65,16 +73,12 @@ body, input, select, textarea {
 		margin: 0 auto;
 		padding: 0 2.5em;
 	}
-
 		@media screen and (max-width: 736px) {
-
 			#wrapper > * > .inner {
 				padding: 0 1.25em;
 			}
-
 		}
 	
-
 .gallery {
 	display: flex;
 	flex-direction: row;
@@ -106,7 +110,7 @@ body, input, select, textarea {
 
 img {
 	flex: 1;
-	flex-basis: 420px;
+	flex-basis: 30vw;
 	display:block;
 	width:100%;
 	height:auto;
@@ -124,6 +128,7 @@ img {
 	transition: .3s ease;
 	position: absolute;
 }
+
 .overlay {
 	top:0;
 	left:0;
@@ -131,18 +136,19 @@ img {
 	width:100%;
 	margin: 0px;
 }
-
 .overlay-blue {
-	background-color: rgb(6, 175, 226);
+	background-color: rgb(21, 161, 204);
 }
-
 .overlay-orange {
-	background-color: rgb(255, 135, 0);
+	background-color: rgb(236, 130, 10);
+}
+.overlay-black {
+	background-color:rgb(42, 42, 42)
+}
+.overlay-green {
+	background-color:rgb(20, 184, 102)
 }
 
-.overlay-black {
-	background-color:rgb(0, 0, 0)
-}
 .card:hover .overlay-title{
 	opacity:1;
 	top: 40%;
@@ -190,3 +196,22 @@ img {
 	height: 50%;
 }
 
+.about-container {
+	margin: 2vw 8vw;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.about-picture {
+	flex: 1;
+}
+.about-text {
+	flex: 1.2; 
+}
+.profile-picture {
+	width: 70%;
+	border-radius: 1.5vw;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
