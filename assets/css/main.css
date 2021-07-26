@@ -18,6 +18,10 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
 */
+a {
+	text-decoration: none;
+}
+
 .nav {
 	display: flex;
 	flex-direction: row;
@@ -218,9 +222,32 @@ img {
 }
 
 .footer {
-
+	padding-top: 15px;
+	padding-bottom: 15px;
+	position: relative;
+	margin: 2vw 0vw;
 	text-align: center;
 }
-.home-footer {
 
+.footer-element {
+	margin: 0em 3em;
+	color: rgb(139, 139, 139);
+	transition: 0.1s;
+	text-decoration: none;
+}
+.footer-links {
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	margin-bottom: 1vw
+}
+
+.footer-element:hover {
+	color: #333;
+}
+
+.footer-credit {
+	color: rgb(139, 139, 139);
 }
