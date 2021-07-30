@@ -90,38 +90,32 @@ body, input, select, textarea {
 .gallery {
 	display: flex;
 	flex-direction: row;
-	flex-wrap: nowrap;
+	flex-wrap: wrap;
 	margin: -2vw -2vw;
 }
 
-.column {
-	flex: 50%;
-	display: flex;
-	flex-direction: column;
-	
-}
-
 .card, .overlay, .img {
-	border-radius: 1.5vw;
+	border-radius: 7% / 11%;
 }
 
 .card {
-	width: auto;
-	height: auto;
-	
+	position: relative;
+	flex: 1;
+	flex-basis: 400px;
+	margin: 2vh 2vw;
 	transition: 1s;
-	position:relative;
-	background-color:rgb(0, 0, 0);
-	border-radius: 1.5vw;
-	margin: 1vw 2vw;
 }
 
-img {
-	flex: 1;
-	flex-basis: 30vw;
-	display:block;
-	width:100%;
-	height:auto;
+.img-container {
+	display: block;
+	width: 100%;
+	padding-top: 66.6666%;
+}
+
+.img {
+	position: absolute;
+	top: 0;
+	width: 100%;
 }
 
 .card:hover {
