@@ -1,5 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900");
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 /*
 html, body, div, span, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -47,8 +48,11 @@ a {
 
 .title {
 	font-family: "Poppins", Helvetica, sans-serif;
-	font-weight: regular;
+	font-weight: 500;
 	color: #222;
+}
+
+.name-logo {
 	padding-right: 3vw;
 	font-size:30pt
 }
@@ -67,7 +71,6 @@ body, input, select, textarea {
 .text-block {
 	font-size: 14pt;
 	font-weight: regular;
-	text-indent: 2em;
 	line-height: 1.5;
 }
 
@@ -207,12 +210,15 @@ img {
 	flex-direction: row;
 	align-items: center;
 }
+
 .about-picture {
 	flex: 1;
 }
 .about-text {
 	flex: 1.2; 
+	text-indent: 2em;
 }
+
 .profile-picture {
 	width: 70%;
 	border-radius: 1.5vw;
@@ -225,6 +231,19 @@ img {
 	margin: 3vw 20vw;
 }
 
+.video-container {
+	position: relative;
+	display: block;
+	margin: 4vw 0vw;
+	width: 100%;
+	padding-top: 56.25%;
+}
+.project-video {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
 .back-button {
 	color: rgb(139, 139, 139);
 	transition: 0.1s;
@@ -235,19 +254,21 @@ img {
 
 .project-title {
 	display: block;
-	font-family: "Poppins", Helvetica, sans-serif;
-	font-weight: regular;
-	color: #222;
 	font-size:30pt
 }
-.project-subtitle {
-	font-family: "Poppins", Helvetica, sans-serif;
-	font-size:14pt
+.subtitle {
+	display: block;
+	font-size:16pt;
+	font-weight: 500;
 }
 
 .back-button:hover {
 	color: #333;
 }
+.project-image {
+	width: 100%
+}
+
 .footer {
 	padding-top: 15px;
 	padding-bottom: 15px;

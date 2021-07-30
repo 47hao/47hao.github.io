@@ -13,10 +13,56 @@
             <i class="fas fa-chevron-left"></i>
             <span> &nbsp  back</span>
         </a>
-        <span class="project-title">Beat Slicer</span>
-        <span class="project-title project-subtitle">Webcam-based 3D motion game</span>
+        <span class="title project-title">Beat Slicer</span>
+        <span class="title subtitle">Webcam-based 3D motion game</span>
     </div>
+
     <body class="project-body">
+        <div class="video-container">
+            <iframe class="project-video"
+                src="https://www.youtube.com/embed/RjHvfmKpxdg" title="Beat Slicer Video" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+        </div>
+        <div class="text-block">
+            <span class="title subtitle">The Process</span>
+            <p>
+                When I started building Beat Slicer, I had hardly an idea for what it would be. All I knew is I wanted
+                to build a game that was cool - complex enough that it's mechanisms were not obvious, accessible enough 
+                to run on most personal computers, and elegant enough to be fun without a lengthy explanation of 
+                the controls. One of my favorite bits of wisdom is, "if something is well-designed 
+                enough, it does not need instructions to be understood."
+            </p>
+            <p>Guided by these goals, I started thinking about features for my game, with three priorities in mind:</p>
+            <img src="images/beat-slicer-1.jpg" class="project-image">
+            <p>
+                The idea of a 3D music-based motion game reminded me of <i>Beat Saber</i>, a widely popular virtual reality game. 
+                While super cool and very fun to play, <i>Beat Saber</i> requires a VR headset, which means most people 
+                couldn't play it conveniently. Thus, I was inspired to create a PC-based game based on <i>Beat Saber</i> with
+                an emphasis on being easily accessible for the average person. 
+            </p>
+
+            <span class="title subtitle">The Design</span>
+            <p>Motion tracking would be the biggest design challenge for my project.</p>
+            <img src="images/beat-slicer-2.jpg" class="project-image">
+            <p>
+                My first two ideas proved unreliable or unstable, and would not produce a working game. They also 
+                heavily compromised accessibility, but I decided to focus on the first issue to at least have a 
+                functioning game.
+            </p>
+            <p> I thought a bit about how cameras work, and realized that while a <i>reflective</i> object
+                blurs into the background when moving, an <b>emissive</b> light source would create a long bright streak
+                that would still be detectable. Thus, the next step was obvious:
+            </p>
+            <img src="images/beat-slicer-3.jpg" class="project-image">
+            <p>
+                I was finally happy to have functioning camera tracking, but was also pretty unhappy that the current
+                setup required players to buy some parts and wire up an electronic contraption, which meant <i>very poor
+                accessibility</i>. At the same time, I made the whimsical realization that <b>any light source worked</b>
+                with my tracking algorithm, and was having some fun:
+            </p>
+
+        </div>
         <div class=" footer">
             <div class="footer-links">
                 <a class="footer-element" target="_blank" href="https://www.linkedin.com/in/andrewhz/">
