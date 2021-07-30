@@ -221,6 +221,33 @@ img {
 	display: block;
 }
 
+.project-body {
+	margin: 3vw 20vw;
+}
+
+.back-button {
+	color: rgb(139, 139, 139);
+	transition: 0.1s;
+	text-decoration: none;
+	margin: 0vw -10vw;
+	text-align: center;
+}
+
+.project-title {
+	display: block;
+	font-family: "Poppins", Helvetica, sans-serif;
+	font-weight: regular;
+	color: #222;
+	font-size:30pt
+}
+.project-subtitle {
+	font-family: "Poppins", Helvetica, sans-serif;
+	font-size:14pt
+}
+
+.back-button:hover {
+	color: #333;
+}
 .footer {
 	padding-top: 15px;
 	padding-bottom: 15px;
