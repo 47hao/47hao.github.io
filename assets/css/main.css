@@ -38,7 +38,7 @@ button {
 
 .nav-item {
 	text-decoration: none;
-	font-size: 20pt;
+	font-size: 25px;
 }
 
 .nav-button {
@@ -59,7 +59,13 @@ button {
 
 .name-logo {
 	padding-right: 3vw;
-	font-size:30pt
+	font-size:40px;
+}
+
+@media screen and (max-width: 800px) {
+	body {
+		margin: 20px 6vw !important;
+	}
 }
 
 body {
@@ -69,12 +75,12 @@ body {
 body, input, select, textarea {
     color: #363636;
     font-family: "Open Sans", Helvetica, sans-serif;
-    font-size: 14pt;
+    font-size: 20px;
     line-height: 1.5;
 }
 
 .text-block {
-	font-size: 14pt;
+	font-size: 20px;
 	font-weight: regular;
 	line-height: 1.5;
 }
@@ -164,7 +170,7 @@ body, input, select, textarea {
 .overlay-title{
 	width:80%;
 	color:white;
-	font-size: 3vw;
+	font-size: 40px;
 	font-weight: bold;
 	left: 50%;
 	top:20%;
@@ -185,7 +191,7 @@ body, input, select, textarea {
 	width:80%;
 	transition: .5s ease;
 	color:rgb(255, 255, 255);
-	font-size: 1.5vw;
+	font-size: 22px;
 	font-weight: 300;
 
 	top:90%;
@@ -253,11 +259,11 @@ body, input, select, textarea {
 
 .project-title {
 	display: block;
-	font-size:30pt
+	font-size:40px;
 }
 .subtitle {
 	display: block;
-	font-size:16pt;
+	font-size:24px;
 	font-weight: 500;
 }
 
