@@ -23,6 +23,11 @@ a {
 	text-decoration: none;
 }
 
+button {
+	color: none;
+	background-color: none;
+	padding: 0px;
+}
 .nav {
 	display: flex;
 	flex-direction: row;
