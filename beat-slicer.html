@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <script src="https://kit.fontawesome.com/b244fa50d8.js" crossorigin="anonymous"></script>
-        <script src="collapsible.js"></script>
     </head>
     <div header>
         <a class="back-button" href="index.html">
@@ -35,7 +34,10 @@
                 enough, it does not need instructions to be understood."
             </p>
 
-            <button type="button" class="collapsible title subtitle">Design</button>
+            <button type="button" class="collapsible title subtitle">
+                <i class="fas fa-angle-right coll-arrow"></i>
+                <span class="coll-label">Design</span>
+            </button>
             <div class="collapsible-content">
                 <p>Guided by these goals, I started thinking about features for my game, with three priorities in mind:</p>
                 <img src="images/beat-slicer-1.jpg" class="project-image">
@@ -45,8 +47,6 @@
                     couldn't play it conveniently. Thus, I was inspired to create a PC-based game based on <i>Beat Saber</i> with
                     an emphasis on being easily accessible for the average person. 
                 </p>
-
-                <span class="title subtitle">The Design</span>
                 <p>Motion tracking would be the biggest design challenge for my project.</p>
                 <img src="images/beat-slicer-2.jpg" class="project-image">
                 <p>
@@ -67,8 +67,32 @@
                 </p>
             </div>
             
+            <button type="button" class="collapsible title subtitle">
+                <i class="fas fa-angle-right coll-arrow"></i>
+                <span class="coll-label">Computer Vision</span>
+            </button>
+            <div class="collapsible-content">
+                <p>Coming soon!</p>
+            </div>
+
+            <button type="button" class="collapsible title subtitle">
+                <i class="fas fa-angle-right coll-arrow"></i>
+                <span class="coll-label">3D Slicing and Graphics</span>
+            </button>
+            <div class="collapsible-content">
+                <p>Coming soon!</p>
+            </div>
+
+            <button type="button" class="collapsible title subtitle">
+                <i class="fas fa-angle-right coll-arrow"></i>
+                <span class="coll-label">Music and Timing</span>
+            </button>
+            <div class="collapsible-content">
+                <p>Coming soon!</p>
+            </div>
 
         </div>
+
         <div class=" footer">
             <div class="footer-links">
                 <a class="footer-element" target="_blank" href="https://www.linkedin.com/in/andrewhz/">
@@ -86,5 +110,7 @@
             </div>
             <span class="footer-credit">site built from scratch</span>
         </div>
+
+        <script src="collapsible.js"></script>
     </body>
 </html>

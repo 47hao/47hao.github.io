@@ -262,15 +262,47 @@ body, input, select, textarea {
 .project-image {
 	width: 100%
 }
+
 .collapsible {
 	cursor: pointer;
+	border: none;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	background: none;
+	margin-top: 0.5em
 }
-.active, .collapsible:hover {
-	color: #900
+.active, .collapsible:hover .coll-label{
+	color: #363636
+}
+
+.coll-label {
+	color: #888;
+	margin-left: 1em;
+}
+.coll-arrow::before {
+	margin-top: -0.85em;
+	margin-left: 0.2em;
+	position: absolute;
+	transform-origin: 50% 50%;
+	transition: transform .5s;
+}
+.coll-arrow.down::before {
+	
+	transform: rotate(90deg);
+	transition: transform .25s;
 }
 .collapsible-content {
-	display: none;
+	display: block;
 	overflow: hidden;
+	max-height: 0;
+	transition: 0.5s ease-in-out;
+	opacity: 0%;
+}
+.center-image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .footer {
