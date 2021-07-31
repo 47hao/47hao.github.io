@@ -262,6 +262,16 @@ body, input, select, textarea {
 .project-image {
 	width: 100%
 }
+.collapsible {
+	cursor: pointer;
+}
+.active, .collapsible:hover {
+	color: #900
+}
+.collapsible-content {
+	display: none;
+	overflow: hidden;
+}
 
 .footer {
 	padding-top: 15px;
