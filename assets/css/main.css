@@ -21,6 +21,8 @@ footer, header, hgroup, menu, nav, section {
 */
 a {
 	text-decoration: none;
+	color: #363636;
+	transition: 0.2s;
 }
 
 button {
@@ -232,6 +234,42 @@ body, input, select, textarea {
 	display: block;
 }
 
+.back-button {
+	color: rgb(139, 139, 139);
+	transition: 0.1s;
+	text-decoration: none;
+	margin: 0vw -10vw;
+	text-align: center;
+	transition: 0.2s;
+}
+.back-button:hover {
+	color: #333;
+}
+
+.project-title-wrapper {
+	display: block;
+}
+
+.project-title {
+	font-size:40px;
+}
+
+.project-github-icon {
+	font-size: 40px;
+	float: right;
+	color: rgb(139, 139, 139);
+	transition: 0.3s;
+	text-decoration: none;
+}
+.project-github-icon:hover {
+	color: #363636
+}
+
+.subtitle {
+	display: block;
+	font-size:24px;
+	font-weight: 500;
+}
 .project-body {
 	margin: 3vw 20vw;
 }
@@ -249,27 +287,6 @@ body, input, select, textarea {
 	width: 100%;
 	height: 100%;
 }
-.back-button {
-	color: rgb(139, 139, 139);
-	transition: 0.1s;
-	text-decoration: none;
-	margin: 0vw -10vw;
-	text-align: center;
-}
-
-.project-title {
-	display: block;
-	font-size:40px;
-}
-.subtitle {
-	display: block;
-	font-size:24px;
-	font-weight: 500;
-}
-
-.back-button:hover {
-	color: #333;
-}
 .project-image {
 	width: 100%
 }
@@ -284,13 +301,15 @@ body, input, select, textarea {
 	margin-top: 0.5em
 }
 .active, .collapsible:hover .coll-label{
-	color: #363636
+	color: #363636 !important
 }
 
 .coll-label {
 	color: #888;
+	transition: 0.5s;
 	margin-left: 1em;
 }
+
 .coll-arrow::before {
 	margin-top: -0.85em;
 	margin-left: 0.2em;
@@ -314,6 +333,20 @@ body, input, select, textarea {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+.fruit-link-1 {
+	font-weight: 500;
+	color:rgb(0, 0, 0)
+}
+.fruit-link-1:hover {
+	color:rgb(20, 184, 102)
+}
+.fruit-link-2 {
+	font-weight: 500;
+	color:rgb(0, 0, 0)
+}
+.fruit-link-2:hover {
+	color:rgb(13, 184, 236)
 }
 
 .footer {

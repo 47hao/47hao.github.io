@@ -13,7 +13,12 @@
             <i class="fas fa-chevron-left"></i>
             <span> &nbsp  back</span>
         </a>
-        <span class="title project-title">Fruit Slicer</span>
+        <div class="project-title-wrapper">
+            <span class="title project-title">Fruit Slicer</span>
+            <a href="https://github.com/RamenBucket/fruit-slicer" target="_blank" class="project-github-icon">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
         <span class="title subtitle">Arcade game with recursive geometric slicing</span>
     </div>
     <body class="project-body">
@@ -29,8 +34,15 @@
                 The concept that we settled on was a fruit-slashing game like the mobile game Fruit Ninja, but with 
                 accurate geometrical fragment slicing. A key bit of fun is that the slicing is <b>recursive</b>, so you 
                 can slice a fruit into fragments, and split those fragments, and split the fragments of those fragments, on and
-                on <i>infinitely</i>  many times.
-
+                on <i>infinitely</i>  many times.    
+            </p>
+            <p>
+                A month after the hackathon, I independently developed an OpenCV-based motion input controlled version 
+                of the game on a fork, 
+                <a href="https://github.com/47hao/fruit-slicer-cv" target="_blank" class="fruit-link-1">available here,</a> 
+                which I originally built to unit test 
+                <a href="beat-slicer.html" target="_blank" class="fruit-link-2">Beat Slicer's</a> 
+                camera control.
             </p>
             <span class="title subtitle">Process</span>
             <p> We divided up the tasks to make the most of our limited hackathon time, which was especially 
