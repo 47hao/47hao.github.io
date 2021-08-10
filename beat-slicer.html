@@ -38,37 +38,45 @@
                 the controls. One of my favorite bits of wisdom is, "if something is well-designed 
                 enough, it does not need instructions to be understood."
             </p>
-
+        </div>
+        <div class="text-block">
             <button type="button" class="collapsible title subtitle">
                 <i class="fas fa-angle-right coll-arrow"></i>
                 <span class="coll-label">Design</span>
             </button>
-            <div class="collapsible-content">
+            <div class="collapsible-content" id="coll-design">
                 <p>Guided by these goals, I started thinking about features for my game, with three priorities in mind:</p>
                 <img src="images/beat-slicer-1.jpg" class="project-image">
                 <p>
                     The idea of a 3D music-based motion game reminded me of <i>Beat Saber</i>, a widely popular virtual reality game. 
                     While super cool and very fun to play, <i>Beat Saber</i> requires a VR headset, which means most people 
-                    can't play it conveniently. Thus, I was inspired to create a PC-based game based on <i>Beat Saber</i> with
+                    can't play it conveniently. Thus, I was inspired to create a PC-based game inspired by <i>Beat Saber</i> with
                     an emphasis on being easily accessible for the average person. 
                 </p>
                 <p>Motion tracking would be the biggest design challenge for my project.</p>
                 <img src="images/beat-slicer-2.jpg" class="project-image">
                 <p>
                     My first two ideas proved unreliable or unstable, and would not produce a working game. They also 
-                    heavily compromised accessibility, but I decided to focus on the first issue to at least have a 
-                    functioning game.
+                    heavily compromised accessibility, but that was the least of my worries since none of these ideas would even
+                    produce a functioning game.
                 </p>
-                <p> I thought a bit about how cameras work, and realized that while a <i>reflective</i> object
-                    blurs into the background when moving, an <b>emissive</b> light source would create a long bright streak
-                    that would still be detectable. Thus, the next step was obvious:
+                <p> I thought a bit about how cameras work, and realized that while <i>reflective</i> objects
+                    blur into the background when moving, <b>emissive</b> light sources create bright streaks
+                    that are very visible. I arrived an an idea I previously thought ingenious, but in retrospect realize
+                    is pretty cumbersome:
                 </p>
                 <img src="images/beat-slicer-3.jpg" class="project-image">
                 <p>
-                    I was finally happy to have functioning camera tracking, but was also pretty unhappy that the current
+                    I was finally happy to have functioning camera tracking. However, I was pretty unhappy that the current
                     setup required players to buy some parts and wire up an electronic contraption, which meant <i>very poor
                     accessibility</i>. At the same time, I made the whimsical realization that <b>any light source worked</b>
                     with my tracking algorithm, and was having some fun:
+                </p>
+                <img src="images/beat-slicer-lights.png" class="project-image">
+                <p>
+                    At this point I realized: <i>Almost everyone has a phone!</i> Now I had a tracking system that had
+                    low system requirements, was robust in varying environments, and used convenient everyday objects to work.
+                    With the basic design of my game sketched out, I was <i>very</i> excited to move on.
                 </p>
             </div>
             
@@ -76,23 +84,48 @@
                 <i class="fas fa-angle-right coll-arrow"></i>
                 <span class="coll-label">Computer Vision</span>
             </button>
-            <div class="collapsible-content">
-                <p>Coming soon!</p>
+            <div class="collapsible-content" id="coll-cv">
+                <p>
+                    The choice of tracking a light source resulted in a multitude of benefits, beyond reducing the effect of
+                    motion blur. Many traditional OpenCV-based algorithms get thrown off by complex, colorful, or noisy backgrounds 
+                    that mess up their pattern-based tracking. Light based tracking results in a robust algorithm that can handle a 
+                    wide variety of noisy and colorful distrctions. Additionally, since webcams tend to have narrow dynamic ranges, 
+                    the bright flashlight causes the camera to naturally darken the rest of the room which slightly improves performance.
+                </p>
+                <img src="images/beat-slicer-gray-1.JPG" height=300em class="center-image">
+                <p>
+                    When processing inputs, I (1) turned the image grayscale, (2) maximized image contrast and sharpness, 
+                    and (3) picked out the largest light spot among those available, in the event that there were multiple. 
+                    The result was a robust algorithm that would track accurately in virtually any typical indoor setting.
+                </p>
+                <img src="images/beat-slicer-algo.png" height=250em class="center-image">
+                <p>
+                    My cycle of reading frames, applying filters, and extracting coordinates was quick compared to other computer vision
+                    alternatives, but visibly slowed the game's framerate when all of the actions were applied before every frame. My 
+                    solution was to run the camera input, filtering, coordinate extrapolation, blade construction, and even
+                    cube slice check on a separate thread, allowing the graphics and cube movements to be completely smooth on
+                    their own.
+                </p>
+                <img src="images/beat-slicer-5.jpg" height=300em class="center-image">
             </div>
 
             <button type="button" class="collapsible title subtitle">
                 <i class="fas fa-angle-right coll-arrow"></i>
                 <span class="coll-label">3D Slicing and Graphics</span>
             </button>
-            <div class="collapsible-content">
-                <p>Coming soon!</p>
+            <div class="collapsible-content" id="coll-3d">
+                <p>
+                    The first thing to do was to write a 3D graphics engine, that translated xyz coordinates to 2D screen
+                    space coordinates. I knew naturally that objects that are farther away are smaller, so my first
+                    attempt was simply scaling the x and y coordinates based on the z.
+                </p>
             </div>
 
             <button type="button" class="collapsible title subtitle">
                 <i class="fas fa-angle-right coll-arrow"></i>
                 <span class="coll-label">Music and Timing</span>
             </button>
-            <div class="collapsible-content">
+            <div class="collapsible-content" id="coll-music">
                 <p>Coming soon!</p>
             </div>
 

@@ -13,6 +13,20 @@ for (i = 0; i < cols.length; i++) {
       } else {
         content.style.maxHeight = content.scrollHeight + "px";
         content.style.opacity = "100%";
+
+      var parent = this.parentElement;
+      //close all other dropdowns when one is opened - WORK IN PROGRESS
+      /*
+      for (var i = 0; i<parent.children.length; i+= 2) { //2, because content are on the same level as collapsibles themselves
+        var selectedColl = parent.children[i]
+        if (selectedColl != this) {
+          //Figure out how to remove active+down tags
+          //selectedColl.children.classList.toggle('active');
+          selectedColl.nextElementSibling.style.maxHeight = null;
+          selectedColl.nextElementSibling.style.opacity = "0%";
+        }
+      }
+      */
     }
   });
 }
