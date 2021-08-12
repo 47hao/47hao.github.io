@@ -31,11 +31,11 @@
         </div>
         <div class="text-block">
             <p>
-                <i>Beat Slicer</i> is a motion-tracking rhythm game written entirely in Python, that uses an <b>original 
-                OpenCV algorithm</b> to read player movements through a webcam. Unlike most motion games, it requires 
+                <i>Beat Slicer</i> is a motion-tracking rhythm game written entirely in Python, that uses an original 
+                <b>OpenCV</b> algorithm to read player movements through a webcam. Unlike most motion games, it requires 
                 <b>no specialized hardware</b>, making it convenient to play.
                 The game features a <b>3D engine</b> written
-                from scratch, and employs accurate <b>3D slicing</b> by splitting cubes into <b>polyhedral fragments</b> 
+                from scratch, and employs accurate <b>3D slicing</b> by splitting cubes into polyhedral fragments
                 based on exactly where they are hit. It guarantees <b>rhythmic accuracy</b> by playing the music <i>in parallel</i> to
                 the game process, ensuring exact synchronization regardless of framerate or performance.
             </p>
@@ -44,7 +44,7 @@
                 When I began building Beat Slicer, I only had a very rough idea for what I wanted it to be.
                 It had to be <b>cool</b> - complex enough that it's mechanisms were not obvious, <b>accessible</b> enough 
                 for the typical student to play, and <b>elegant</b> enough to be fun without a lengthy explanation of 
-                the controls. The result is a balanced mix of <b>design, programming, art, and problem solving</b> that appeals
+                the controls. The result is a balanced mix of design, programming, art, and problem solving that appeals
                 to many. 
             </p>
         </div>
@@ -74,21 +74,21 @@
                 </p>
                 <img src="images/beat-slicer-3.jpg" class="project-image">
                 <p>
-                    With a little openCV code, I was able to get the computer to track the light stick! However, I was <b>pretty 
-                    unhappy</b> with this setup as it meants players would have to <i>go buy parts</i> and <i>build a light stick</i> to play. 
-                    Not cool. While pondering my options, I realized that <b>any light source</b> worked
+                    With a little openCV code, I was able to get the computer to track the light stick! However, I was pretty 
+                    unhappy with this setup as it meants players would have to buy parts and build a light stick to play. 
+                    Not cool. While pondering my options, I realized that <i>any light source</i> worked
                     with the tracking algorithm, and was having some fun:
                 </p>
                 <img src="images/beat-slicer-lights.png" class="project-image">
                 <p>
                     Wait. <i>Almost everyone has a phone!</i> I had accidentally designed a tracking system that had
-                    <b>low system requirements,</b> was <b>robust</b> in varying environments, and used just one <b>convenient</b> 
+                    low system requirements, was robust in varying environments, and used just one convenient 
                     item that everyone carries around. 
                 </p>
                 <p>
-                    At the same time, I remembered that <b>VR systems</b> track player motions via <i>infrared</i> lights mounted on the controllers. 
-                    My idea of using visible light, in comparison, traded some of the <i>performance and reliability</i> offered by custom 
-                    controllers for the <i>greater accessibility</i> of less hardware.
+                    At the same time, I remembered that VR systems track player motions via <i>infrared</i> lights mounted on the controllers. 
+                    My idea of using visible light, in comparison, traded some of the performance and reliability offered by custom 
+                    controllers for the greater accessibility of less hardware.
                 </p>
                 <p>
                     I've always believed that if something is designed <i>well enough</i>, it shouldn't need instructions to be understood.
@@ -102,9 +102,9 @@
             </button>
             <div class="collapsible-content" id="coll-cv">
                 <p>
-                    I discovered additional benefits of light tracking as I began writing code. <b>Traditional OpenCV algorithms</b> are often confused 
-                    by <i>noisy and cluttered backgrounds</i>, but since such distractions usually <i>aren't too bright</i>, <b>my algorithm simply ignores
-                    them</b>. Since <b>webcams</b> tend to have <i>narrow dynamic ranges</i>, 
+                    I discovered additional benefits of light tracking as I began writing code. Traditional OpenCV algorithms are often confused 
+                    by noisy and cluttered backgrounds, but since such distractions usually aren't too bright, my algorithm simply ignores
+                    them. Since webcams tend to have narrow dynamic ranges, 
                     the rest of the image becomes naturally darker as the camera adjusts for exposure.
                 </p>
                 <img src="images/beat-slicer-gray-1.JPG" width=300em class="center-image">
@@ -115,9 +115,9 @@
                 </p>
                 <img src="images/beat-slicer-algo.png" width=600em class="center-image">
                 <p>
-                    Unfortunately, the cycle of reading frames, applying filters, and extracting coordinates <b>greatly slowed</b> the 
+                    Unfortunately, the cycle of reading frames, applying filters, and extracting coordinates greatly slowed the 
                     game's framerate as it ran alongside the other processes. 
-                    <b>My solution</b> was to <b>multithread</b> the application and run the camera input, filtering, coordinate extrapolation, 
+                    My solution was to <b>multithread</b> the application and run the camera input, filtering, coordinate extrapolation, 
                     blade construction, and cube slice check on a separate thread, allowing the graphics and movements to both run smoothly
                 </p>
                 <img src="images/beat-slicer-5.jpg" width=500em class="center-image">
@@ -129,7 +129,7 @@
             </button>
             <div class="collapsible-content" id="coll-3d">
                 <p>
-                    Writing a 3D graphics engine meant <b>translating</b> xyz coordinates to 2D screen space coordinates. Since farther away 
+                    Writing a 3D graphics engine meant translating xyz coordinates to 2D screen space coordinates. Since farther away 
                     objects appear visually smaller, I knew that x and y would scale based on z. After a bit of trigonometry,
                     I got decent results.
                 </p>
@@ -143,13 +143,13 @@
                 <img src="images/beat-slicer-slicing-2.png" class="column-image">
                 <img src="images/beat-slicer-slicing-3.png" class="column-image">
                 <p>
-                    Writing an algorithm to create <b>convex polyhedra from 3D coordinates</b> was a bit beyond my time budget,
+                    Writing an algorithm to create convex polyhedra from 3D coordinates was a bit beyond my time budget,
                     so I borrowed help from scipy's ConvexHull package to create faces from the sets of points. This still
-                    left me with a <b>major problem</b>:
+                    left me with a major problem:
                 </p>
                 <img src="images/beat-slicer-cube-split.png" width=300em class="center-image">
                 <p>
-                    It produced a <b>mesh of triangles</b>, which makes sense mathematically, but causes <b>ugly extra lines</b>
+                    It produced a mesh of triangles, which makes sense <i>mathematically</i>, but causes ugly extra lines
                     when drawn out for my purposes. To remedy this, I created an algorithm to merge coplanar faces, and wrote a suite 
                     of functions to accomplish it.
                 </p>
@@ -161,8 +161,8 @@
                 </p>
                 <img src="images/cube-design.png" width=350em class="center-image">
                 <p>
-                    They were all a <b>bit too complex</b>, and I wanted something simpler. I decided to try the simplest possible
-                    representation of a cube, with just a <b>>square on top of a hexagon</b>:
+                    They were all a bit too complex, and I wanted something simple. I decided to try the simplest possible
+                    representation of a cube, with just a square on top of a hexagon:
                 </p>
                 <img src="images/cube-hexagon.png" width=600em class="center-image">
                 <p>
@@ -178,27 +178,27 @@
                 <p>
                     I knew from the start that <b>accurate timing</b> is critical to ensuring the smoothness and feel of rhythm games. 
                     A resulting design feature is that cubes were positioned <b>x-y-time</b> coordinates, rather than <b>x-y-z</b>,
-                    as arriving <i>exactly</i> on the <b>right beat</b> was more important than being at the exact right units of distance.
+                    as arriving <i>exactly</i> on the right beat was more important than being at a specific distance.
                 </p>
                 <img src="images/cube-axis.jpg" width=150em class="center-image">
                 <p>
                     There was another major problem: <b>The game's timing cycle did not run consistently</b>. The timer would wait
-                    until the game finished the current step before <i>starting</i> to count to the next step, and the <b>duration
-                    of each step</b>  varied based on computer hardware, screen size, and many other <i>uncontrollable factors</i>.
-                    With the goal of running <b>44,100</b> steps per second, this level of error was <b>unacceptable</b> and would
+                    until the game finished the current step before <i>starting</i> to count to the next step, and the duration
+                    of each step varied based on computer hardware, screen size, and many other <i>uncontrollable factors</i>.
+                    With the goal of running <b>44,100</b> steps per second, this level of error was unacceptable and would
                     distort the music to the point that it was unrecognizable.
                 </p>
                 <img src="images/beats.png" width=500em class="center-image">
                 <p>
-                    My first idea was to <b>measure</b> the error and <b>compensate</b> for it - time
-                    each step, and figure out <b>how many beats</b> should occur during it.
+                    My first idea was to measure the error and <i>compensate</i> for it - time
+                    each step, and figure out how many beats should occur during it.
                 </p>
                 <img src="images/beats-corrected.png" width=500em class="center-image">
                 <p>
                     Better, but it still did not line up well. My eventual solution was to <b>flip the script</b> - let the <i>view</i> 
-                    control the <i>model</i>, in MVC terms. The song would play uninterrupted on its <b>own thread</b>, 
+                    control the <i>model</i>, in MVC terms. The song would play uninterrupted on its own thread, 
                     send timing information to the game, and do <i>nothing else</i>, allowing it to run smoothly and stably. The 
-                    <b>game itself</b> would handle <b>all the processing</b> of converting coordinates and moving cubes. This way,
+                    game itself would handle all the processing of converting coordinates and moving cubes. This way,
                     even if the framerate dropped or the program slowed, every cube would still arrive <b>right on time</b>.
 
                 </p>
