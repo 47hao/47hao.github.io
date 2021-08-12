@@ -32,11 +32,12 @@
         <div class="text-block">
             <span class="title subtitle">The Process</span>
             <p>
-                When I started building Beat Slicer, I had hardly an idea for what it would be. All I knew is I wanted
-                to build a game that was cool - complex enough that it's mechanisms were not obvious, accessible enough 
-                to run on most personal computers, and elegant enough to be fun without a lengthy explanation of 
-                the controls. One of my favorite bits of wisdom is, "if something is well-designed 
-                enough, it does not need instructions to be understood."
+                When I began building Beat Slicer, I only had some very rough ideas for what I wanted it to be.
+                It had to be <b>cool</b> - complex enough that it's mechanisms were not obvious, <b>accessible</b> enough 
+                for the typical student to play, and <b>elegant</b> enough to be fun without a lengthy explanation of 
+                the controls. The result is a beautiful mix of <b>design, programming, art, and problem solving</b> that resonates 
+                with everyone. One of my favorite bits of wisdom is, "if something is designed <i>well
+                    enough</i>, it does not need instructions to be understood." 
             </p>
         </div>
         <div class="text-block">
@@ -49,34 +50,37 @@
                 <img src="images/beat-slicer-1.jpg" class="project-image">
                 <p>
                     The idea of a 3D music-based motion game reminded me of <i>Beat Saber</i>, a widely popular virtual reality game. 
-                    While super cool and very fun to play, <i>Beat Saber</i> requires a VR headset, which means most people 
+                    Unfortunately, <i>Beat Saber</i> requires a VR headset, which means most people 
                     can't play it conveniently. Thus, I was inspired to create a PC-based game inspired by <i>Beat Saber</i> with
-                    an emphasis on being easily accessible for the average person. 
+                    an emphasis on accessibility to the average person. 
                 </p>
                 <p>Motion tracking would be the biggest design challenge for my project.</p>
                 <img src="images/beat-slicer-2.jpg" class="project-image">
                 <p>
                     My first two ideas proved unreliable or unstable, and would not produce a working game. They also 
-                    heavily compromised accessibility, but that was the least of my worries since none of these ideas would even
-                    produce a functioning game.
+                    heavily compromised accessibility.
                 </p>
-                <p> I thought a bit about how cameras work, and realized that while <i>reflective</i> objects
-                    blur into the background when moving, <b>emissive</b> light sources create bright streaks
-                    that are very visible. I arrived an an idea I previously thought ingenious, but in retrospect realize
-                    is pretty cumbersome:
+                <p> After thinking for a bit about how cameras work, I realized that <i>reflective</i> objects
+                    blur into the background when moving, but <b>emissive</b> light sources create bright streaks
+                    that are very visible. 
                 </p>
                 <img src="images/beat-slicer-3.jpg" class="project-image">
                 <p>
-                    I was finally happy to have functioning camera tracking. However, I was pretty unhappy that the current
-                    setup required players to buy some parts and wire up an electronic contraption, which meant <i>very poor
-                    accessibility</i>. At the same time, I made the whimsical realization that <b>any light source worked</b>
-                    with my tracking algorithm, and was having some fun:
+                    With a little openCV code, I was able to get the computer to track the light stick! However, I was <b>pretty 
+                    unhappy</b> with this setup as it meants players would have to <i>go buy parts</i> and <i>build a light stick</i> to play. 
+                    Not cool. While pondering my options, I realized that <b>any light source</b> worked
+                    with the tracking algorithm, and was having some fun:
                 </p>
                 <img src="images/beat-slicer-lights.png" class="project-image">
                 <p>
-                    At this point I realized: <i>Almost everyone has a phone!</i> Now I had a tracking system that had
-                    low system requirements, was robust in varying environments, and used convenient everyday objects to work.
-                    With the basic design of my game sketched out, I was <i>very</i> excited to move on.
+                    Wait. <i>Almost everyone has a phone!</i> I had accidentally designed a tracking system that had
+                    <b>low system requirements,</b> was <b>robust</b> in varying environments, and used just one <b>convenient</b> 
+                    item that everyone carries around. 
+                </p>
+                <p>
+                    At the same time, I remembered that <b>VR systems</b> track player motions via <i>infrared</i> lights mounted on the controllers. 
+                    My idea of using visible light, in comparison, traded some of the <i>performance and reliability</i> offered by custom 
+                    controllers for the <i>greater accessibility</i> of less hardware.
                 </p>
             </div>
             
@@ -86,27 +90,25 @@
             </button>
             <div class="collapsible-content" id="coll-cv">
                 <p>
-                    The choice of tracking a light source resulted in a multitude of benefits, beyond reducing the effect of
-                    motion blur. Many traditional OpenCV-based algorithms get thrown off by complex, colorful, or noisy backgrounds 
-                    that mess up their pattern-based tracking. Light based tracking results in a robust algorithm that can handle a 
-                    wide variety of noisy and colorful distrctions. Additionally, since webcams tend to have narrow dynamic ranges, 
-                    the bright flashlight causes the camera to naturally darken the rest of the room which slightly improves performance.
+                    I discovered additional benefits of light tracking as I began writing code. <b>Traditional OpenCV algorithms</b> are often confused 
+                    by <i>noisy and cluttered backgrounds</i>, but since such distractions usually <i>aren't too bright</i>, <b>my algorithm simply ignores
+                    them</b>. Since <b>webcams</b> tend to have <i>narrow dynamic ranges</i>, 
+                    the rest of the image becomes naturally darker as the camera adjusts for exposure.
                 </p>
-                <img src="images/beat-slicer-gray-1.JPG" height=300em class="center-image">
+                <img src="images/beat-slicer-gray-1.JPG" width=300em class="center-image">
                 <p>
                     When processing inputs, I (1) turned the image grayscale, (2) maximized image contrast and sharpness, 
                     and (3) picked out the largest light spot among those available, in the event that there were multiple. 
                     The result was a robust algorithm that would track accurately in virtually any typical indoor setting.
                 </p>
-                <img src="images/beat-slicer-algo.png" height=250em class="center-image">
+                <img src="images/beat-slicer-algo.png" width=600em class="center-image">
                 <p>
-                    My cycle of reading frames, applying filters, and extracting coordinates was quick compared to other computer vision
-                    alternatives, but visibly slowed the game's framerate when all of the actions were applied before every frame. My 
-                    solution was to run the camera input, filtering, coordinate extrapolation, blade construction, and even
-                    cube slice check on a separate thread, allowing the graphics and cube movements to be completely smooth on
-                    their own.
+                    Unfortunately, the cycle of reading frames, applying filters, and extracting coordinates <b>greatly slowed</b> the 
+                    game's framerate as it ran alongside the other processes. 
+                    <b>My solution</b> was to <b>multithread</b> the application and run the camera input, filtering, coordinate extrapolation, 
+                    blade construction, and cube slice check on a separate thread, allowing the graphics and movements to both run smoothly
                 </p>
-                <img src="images/beat-slicer-5.jpg" height=300em class="center-image">
+                <img src="images/beat-slicer-5.jpg" width=500em class="center-image">
             </div>
 
             <button type="button" class="collapsible title subtitle">
@@ -115,9 +117,44 @@
             </button>
             <div class="collapsible-content" id="coll-3d">
                 <p>
-                    The first thing to do was to write a 3D graphics engine, that translated xyz coordinates to 2D screen
-                    space coordinates. I knew naturally that objects that are farther away are smaller, so my first
-                    attempt was simply scaling the x and y coordinates based on the z.
+                    Writing a 3D graphics engine meant <b>translating</b> xyz coordinates to 2D screen space coordinates. Since farther away 
+                    objects appear visually smaller, I knew that x and y would scale based on z. After a bit of trigonometry,
+                    I got decent results.
+                </p>
+                <img src="images/beat-slicer-6.png" width=500em class="center-image">
+                <img src="images/beat-slicer-7.jpg" width=300em class="center-image">
+                <p>
+                    Next was the biggest challenge of the whole project - <b>3D Slicing</b>. Mathematically, I needed to split a cube 
+                    into two fragments with a bisecting plane.
+                </p>
+                <img src="images/beat-slicer-slicing-1.png" class="column-image">
+                <img src="images/beat-slicer-slicing-2.png" class="column-image">
+                <img src="images/beat-slicer-slicing-3.png" class="column-image">
+                <p>
+                    Writing an algorithm to create <b>convex polyhedra from 3D coordinates</b> was a bit beyond my time budget,
+                    so I borrowed help from scipy's ConvexHull package to create faces from the sets of points. This still
+                    left me with a <b>major problem</b>:
+                </p>
+                <img src="images/beat-slicer-cube-split.png" width=300em class="center-image">
+                <p>
+                    It produced a <b>mesh of triangles</b>, which makes sense mathematically, but causes <b>ugly extra lines</b>
+                    when drawn out for my purposes. To remedy this, I created an algorithm to merge coplanar faces, and wrote a suite 
+                    of functions to accomplish it.
+                </p>
+                <img src="images/beat-slicer-merge.jpg" width=500em class="center-image">
+                <p>
+                    Finally, the cubes and their fragments were being drawn correctly. I began experimenting with
+                    how the cubes should look:
+                    
+                </p>
+                <img src="images/cube-design.png" width=350em class="center-image">
+                <p>
+                    They were all a <b>bit too complex</b>, and I wanted something simpler. I decided to try the simplest possible
+                    representation of a cube, with just a <b>>square on top of a hexagon</b>:
+                </p>
+                <img src="images/cube-hexagon.png" width=600em class="center-image">
+                <p>
+                    And it looked great!
                 </p>
             </div>
 
