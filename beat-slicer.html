@@ -30,14 +30,22 @@
                 allowfullscreen></iframe>
         </div>
         <div class="text-block">
+            <p>
+                <i>Beat Slicer</i> is a motion-tracking rhythm game written entirely in Python, that uses an <b>original 
+                OpenCV algorithm</b> to read player movements through a webcam. Unlike most motion games, it requires 
+                <b>no specialized hardware</b>, making it convenient to play.
+                The game features a <b>3D engine</b> written
+                from scratch, and employs accurate <b>3D slicing</b> by splitting cubes into <b>polyhedral fragments</b> 
+                based on exactly where they are hit. It guarantees <b>rhythmic accuracy</b> by playing the music <i>in parallel</i> to
+                the game process, ensuring exact synchronization regardless of framerate or performance.
+            </p>
             <span class="title subtitle">The Process</span>
             <p>
-                When I began building Beat Slicer, I only had some very rough ideas for what I wanted it to be.
+                When I began building Beat Slicer, I only had a very rough idea for what I wanted it to be.
                 It had to be <b>cool</b> - complex enough that it's mechanisms were not obvious, <b>accessible</b> enough 
                 for the typical student to play, and <b>elegant</b> enough to be fun without a lengthy explanation of 
-                the controls. The result is a beautiful mix of <b>design, programming, art, and problem solving</b> that resonates 
-                with everyone. One of my favorite bits of wisdom is, "if something is designed <i>well
-                    enough</i>, it does not need instructions to be understood." 
+                the controls. The result is a balanced mix of <b>design, programming, art, and problem solving</b> that appeals
+                to many. 
             </p>
         </div>
         <div class="text-block">
@@ -46,7 +54,7 @@
                 <span class="coll-label">Design</span>
             </button>
             <div class="collapsible-content" id="coll-design">
-                <p>Guided by these goals, I started thinking about features for my game, with three priorities in mind:</p>
+                <p>With a set of goals laid out, I started thinking about features for my game, with three priorities in mind:</p>
                 <img src="images/beat-slicer-1.jpg" class="project-image">
                 <p>
                     The idea of a 3D music-based motion game reminded me of <i>Beat Saber</i>, a widely popular virtual reality game. 
@@ -81,6 +89,10 @@
                     At the same time, I remembered that <b>VR systems</b> track player motions via <i>infrared</i> lights mounted on the controllers. 
                     My idea of using visible light, in comparison, traded some of the <i>performance and reliability</i> offered by custom 
                     controllers for the <i>greater accessibility</i> of less hardware.
+                </p>
+                <p>
+                    I've always believed that if something is designed <i>well enough</i>, it shouldn't need instructions to be understood.
+                    I was very happy with how simple and intuitive the system was, and was excited to take the projet further.
                 </p>
             </div>
             
@@ -163,7 +175,33 @@
                 <span class="coll-label">Music and Timing</span>
             </button>
             <div class="collapsible-content" id="coll-music">
-                <p>Coming soon!</p>
+                <p>
+                    I knew from the start that <b>accurate timing</b> is critical to ensuring the smoothness and feel of rhythm games. 
+                    A resulting design feature is that cubes were positioned <b>x-y-time</b> coordinates, rather than <b>x-y-z</b>,
+                    as arriving <i>exactly</i> on the <b>right beat</b> was more important than being at the exact right units of distance.
+                </p>
+                <img src="images/cube-axis.jpg" width=150em class="center-image">
+                <p>
+                    There was another major problem: <b>The game's timing cycle did not run consistently</b>. The timer would wait
+                    until the game finished the current step before <i>starting</i> to count to the next step, and the <b>duration
+                    of each step</b>  varied based on computer hardware, screen size, and many other <i>uncontrollable factors</i>.
+                    With the goal of running <b>44,100</b> steps per second, this level of error was <b>unacceptable</b> and would
+                    distort the music to the point that it was unrecognizable.
+                </p>
+                <img src="images/beats.png" width=500em class="center-image">
+                <p>
+                    My first idea was to <b>measure</b> the error and <b>compensate</b> for it - time
+                    each step, and figure out <b>how many beats</b> should occur during it.
+                </p>
+                <img src="images/beats-corrected.png" width=500em class="center-image">
+                <p>
+                    Better, but it still did not line up well. My eventual solution was to <b>flip the script</b> - let the <i>view</i> 
+                    control the <i>model</i>, in MVC terms. The song would play uninterrupted on its <b>own thread</b>, 
+                    send timing information to the game, and do <i>nothing else</i>, allowing it to run smoothly and stably. The 
+                    <b>game itself</b> would handle <b>all the processing</b> of converting coordinates and moving cubes. This way,
+                    even if the framerate dropped or the program slowed, every cube would still arrive <b>right on time</b>.
+
+                </p>
             </div>
 
         </div>
