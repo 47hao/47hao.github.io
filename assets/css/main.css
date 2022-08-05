@@ -87,6 +87,14 @@ body, input, select, textarea {
 	line-height: 1.5;
 }
 
+.half-width-list {
+	width: 45vmax;
+}
+
+.list-item {
+	line-height: 1.2em;
+	margin-bottom: 1em;
+}
 /* Wrapper */
 	#wrapper > * > .inner {
 		width: 100%;
